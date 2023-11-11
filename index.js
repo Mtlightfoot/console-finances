@@ -95,12 +95,16 @@ var finances = [
 // 6. Create an algorithm that minuses every array number and keeps the lowest number each time
 
 let totalAmount = 0;
+
 let totalMonths = finances.length;
+
 let averageChange = 0;
+
 let largestChange = 0;
-let largestMonth;
+let largestMonth = "";
+
 let smallestChange = 0;
-let smallestMonth;
+let smallestMonth = "";
 
 
 for (let i = 0; i < finances.length; i++) {
@@ -128,13 +132,10 @@ for (let i = 0; i < finances.length; i++) {
   }
 }
 
-
 console.log("Financial Analysis");
 console.log("------------------")
 console.log(`Total Months: ${totalMonths}`);
 console.log(`Total: $${totalAmount}`);
 console.log(`Average Change: ${Math.round((averageChange / (totalMonths - 1)) * 100) / 100}`);
-console.log(`Greatest Increase in Profits/Losses: ${largestMonth} ${largestChange}`);
-console.log(`Greatest Decrease in Profits/Losses: ${smallestMonth} ${smallestChange}`);
-// console log biggest change with the month attached
-// console log smallest change with the month attached
+console.log(`Greatest Increase in Profits/Losses: ${largestMonth} ($${largestChange})`);
+console.log(`Greatest Decrease in Profits/Losses: ${smallestMonth} ($${smallestChange})`);
