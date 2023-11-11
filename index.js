@@ -86,3 +86,50 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// 1. Create a for loop that will go through each array element
+// 2. Use the for loop to count how many months there are and store it in a variable
+// 3. Use the for loop to add up all of the profits and losses over the entire period
+// 4. Calculate the average of the profit/losses over the entire period and store it in a variable
+// 5. Create an algorithm that adds up the array numbers and keeps the highest number each time
+// 6. Create an algorithm that minuses every array number and keeps the lowest number each time
+
+let totalAmount = 0;
+let totalMonths = finances.length;
+let averageChange = 0;
+let largestChange = [];
+let smallestChange = [];
+
+for (let i = 0; i < finances.length; i++) {
+  totalAmount += finances[i][1];
+
+  if (i < (finances.length - 1)) {
+    let currentMonth = finances[i];
+    let currentProfit = currentMonth[1];
+    let nextMonth = finances[i + 1];
+    let nextProfit = nextMonth[1];
+    let currentChange = nextProfit - currentProfit;
+    averageChange += currentChange;
+
+    // This if  statement works out greatest increase in profits/losses
+    if (largestChange < currentChange) {
+      largestChange = currentChange;
+    }
+
+    // This if statement works out greatest decrease in profits/losses
+    if (smallestChange > currentChange) {
+      smallestChange = currentChange;
+    }
+  }
+}
+
+
+console.log("Financial Analysis");
+console.log("------------------")
+console.log(`Total Months: ${totalMonths}`);
+console.log(`Total: $${totalAmount}`);
+console.log(`Average Change: ${Math.round((averageChange / (totalMonths - 1)) * 100) / 100}`);
+console.log(`Greatest Increase in Profits/Losses: ${largestChange}`);
+console.log(`Greatest Decrease in Profits/Losses: ${smallestChange}`);
+// console log biggest change with the month attached
+// console log smallest change with the month attached
