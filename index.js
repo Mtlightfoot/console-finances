@@ -97,8 +97,11 @@ var finances = [
 let totalAmount = 0;
 let totalMonths = finances.length;
 let averageChange = 0;
-let largestChange = [];
-let smallestChange = [];
+let largestChange = 0;
+let largestMonth;
+let smallestChange = 0;
+let smallestMonth;
+
 
 for (let i = 0; i < finances.length; i++) {
   totalAmount += finances[i][1];
@@ -114,11 +117,13 @@ for (let i = 0; i < finances.length; i++) {
     // This if  statement works out greatest increase in profits/losses
     if (largestChange < currentChange) {
       largestChange = currentChange;
+      largestMonth = nextMonth[0];
     }
 
     // This if statement works out greatest decrease in profits/losses
     if (smallestChange > currentChange) {
       smallestChange = currentChange;
+      smallestMonth = nextMonth[0];
     }
   }
 }
@@ -129,7 +134,7 @@ console.log("------------------")
 console.log(`Total Months: ${totalMonths}`);
 console.log(`Total: $${totalAmount}`);
 console.log(`Average Change: ${Math.round((averageChange / (totalMonths - 1)) * 100) / 100}`);
-console.log(`Greatest Increase in Profits/Losses: ${largestChange}`);
-console.log(`Greatest Decrease in Profits/Losses: ${smallestChange}`);
+console.log(`Greatest Increase in Profits/Losses: ${largestMonth} ${largestChange}`);
+console.log(`Greatest Decrease in Profits/Losses: ${smallestMonth} ${smallestChange}`);
 // console log biggest change with the month attached
 // console log smallest change with the month attached
